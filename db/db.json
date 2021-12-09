@@ -1,0 +1,40 @@
+{
+  "data": {
+    "solde": 12345
+  },
+  "transactions": [
+    {
+      "id": 1,
+      "price": 12,
+      "libelle": "transac1"
+    },
+    {
+      "id": 2,
+      "price": -12,
+      "libelle": "transac2"
+    },
+    {
+      "id": 3,
+      "price": 345,
+      "libelle": "transac3"
+    },
+    {
+      "id": 4,
+      "price": 245,
+      "libelle": "transac4"
+    },
+    {
+      "id": 5,
+      "price": -12,
+      "libelle": "transac5"
+    },
+    {
+      "id": 6,
+      "price": 12,
+      "libelle": "transac6"
+    },
+    {
+      "id": 7
+    }
+  ]
+}

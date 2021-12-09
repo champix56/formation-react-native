@@ -22,6 +22,18 @@
         "test": "grc/hooked/TemplateName.test.tsx",
         "style": "grc/hooked/TemplateName.style.tsx"
       }
+    },
+    "page": {
+      "path": "src/App/page",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false,
+      "customTemplates": {
+        "component": "grc/connectedPage/TemplateName.tsx",
+        "test": "grc/hooked/TemplateName.test.tsx",
+        "style": "grc/hooked/TemplateName.style.tsx"
+      }
     }
   }
 }

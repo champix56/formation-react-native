@@ -1,25 +1,43 @@
-import React, {useState, useEffect} from 'react';
-import store, {initialState as storeInitialState} from './store/store';
-import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
+import React from 'react';
+import {SafeAreaView, StyleSheet, StatusBar, Text, View} from 'react-native';
 //import Button from './components/Button/Button';
-import HomePage from './components/HomePage/HomePage';
 
-const initialState = {
-  cb: {num: '4977887677543333', exp: '02/22', type: 'visa'},
-  transactions: [{id: 1, type: 'retrait', libelle: 'ok ok ok ', price: 67}],
-  solde: 788888,
-};
+import ModalLayout from './components/ModalLayout/ModalLayout';
+import Button from './components/Button/Button';
+import Navbar from './components/Navbar/Navbar';
+import {connect} from 'react-redux';
 
-const App = () => {
-  const [state, setstate] = useState(initialState);
+const App = props => {
   return (
     <SafeAreaView style={styles.screen}>
       <StatusBar backgroundColor="transparent" />
-      <HomePage
-        transactions={state.transactions}
-        solde={state.solde}
-        action={() => null}
-      />
+      <View style={{flexGrow: 1}}>{props.page}</View>
+      <Navbar />
+      <ModalLayout>
+        <View>
+          <View
+            style={{
+              borderBottomWidth: 1,
+              borderBottomColor: 'black',
+              marginBottom: 5,
+            }}>
+            <Text>title</Text>
+          </View>
+          <View
+            style={{
+              flexGrow: 1,
+              borderBottomWidth: 1,
+              borderBottomColor: 'black',
+              marginBottom: 5,
+            }}>
+            <Text>Oh breizh ma bro</Text>
+          </View>
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <Button text="ok" onTap={() => {}} bgColor="skyblue" />
+            <Button text="cancel" onTap={() => {}} bgColor="skyblue" />
+          </View>
+        </View>
+      </ModalLayout>
     </SafeAreaView>
   );
 };
@@ -59,5 +77,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 });
-
-export default App;
+function mstp(state, own) {
+  return {...own, ...state.navigation};
+}
+function mdtp() {
+  return {};
+}
+export default connect(mstp, mdtp)(App);

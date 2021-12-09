@@ -1,7 +1,11 @@
 import React from 'react';
 import {ScrollView, View, Image, Text} from 'react-native';
-import Transaction from '../Transaction/Transaction';
-import Button from './../Button/Button';
+import {connect} from 'react-redux';
+import {MODAL_ACTIONS} from '../../store/modalReducer';
+import store from '../../store/store';
+import ActionTransact from '../../components/ActionTransact/ActionTransact';
+import Transaction from '../../components/Transaction/Transaction';
+import Button from '../../components/Button/Button';
 
 import {styles} from './HomePage.style';
 
@@ -13,34 +17,28 @@ interface HomePageProps {
     price: number;
   }>;
   solde: number;
-  action: Function;
+  makeTransact: Function;
 }
 //const initialState = {};
 
-const HomePage: React.FC<HomePageProps> = ({transactions, solde, action}) => {
-  //const [state, setstate] = useState(initialState);
-
-  // useEffect(() => {
-  //   //didMOunt//didUpdate
-  //   setstate({name: 'name'});
-  //   return () => {
-  //     //willUnmount
-  //   };
-  // }, [state]);
-
+const HomePage: React.FC<HomePageProps> = ({
+  transactions,
+  solde,
+  makeTransact,
+}) => {
   return (
     <View data-testID="HomePage" style={styles.HomePage}>
       <View style={styles.header}>
         <View style={styles.imgHeader}>
           <Image
             style={{width: '100%', height: 150}}
-            source={require('./../../../assets/images/NoelseAmbassadorDigital.png')}
+            source={require('../../../assets/images/NoelseAmbassadorDigital.png')}
           />
         </View>
       </View>
       <View style={styles.header2}>
         <View style={styles.containerButtons}>
-          <Button
+          {/* <Button
             text="Dépôt"
             bgColor="orange"
             onTap={() =>
@@ -50,13 +48,17 @@ const HomePage: React.FC<HomePageProps> = ({transactions, solde, action}) => {
               style={{width: 25, height: 25}}
               source={require('./../../../assets/images/cross_icon.png')}
             />
-          </Button>
+          </Button> */}
           <Button
-            text="Retrait"
+            text="Transaction"
             bgColor="green"
-            onTap={() =>
-              action({type: 'retrait', libelle: 'test retrait', price: -500})
-            }>
+            onTap={() => {
+              // store.dispatch({
+              //   type: MODAL_ACTIONS.SHOW,
+              //   value: <ActionTransact />,
+              // });
+              makeTransact();
+            }}>
             <Image
               style={{width: 25, height: 25}}
               source={require('./../../../assets/images/cross_icon.png')}
@@ -78,5 +80,16 @@ const HomePage: React.FC<HomePageProps> = ({transactions, solde, action}) => {
     </View>
   );
 };
-
-export default HomePage;
+function mapStateToProps(state: any, own: any) {
+  return {
+    ...own,
+    ...state.data,
+  };
+}
+function mapDispatchToProps(dispatch: Function) {
+  return {
+    makeTransact: () =>
+      dispatch({type: MODAL_ACTIONS.SHOW, value: <ActionTransact />}),
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.6,
     shadowRadius: 1.5,
-    elevation: 50,
+    //elevation: 50,
     shadowColor: 'black',
     padding: 3,
     width: '70%',
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     flexDirection: 'row',
     paddingVertical: 10,
-    justifyContent: 'space-between',
+    justifyContent: 'center',
   },
   container: {
     width: 300,
@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     },
     shadowOpacity: 0.6,
     shadowRadius: 1.5,
-    elevation: 5,
+    //elevation: 5,
     shadowColor: 'black',
   },
   solde: {

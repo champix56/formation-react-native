@@ -9,14 +9,18 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "hookCPM": "npx generate-react-cli c --type=rnhooked",
-    "rdt": "react-devtools"
+    "pageCPM": "npx generate-react-cli c --type=page",
+    "rdt": "react-devtools",
+    "json":"json-server -p 5679 db/db.json"
   },
   "dependencies": {
+    "json-server": "^0.17.0",
     "react": "17.0.2",
     "react-devtools": "^4.21.0",
     "react-native": "0.66.3",
     "react-redux": "^7.2.6",
-    "redux": "^4.1.2"
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

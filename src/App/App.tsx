@@ -6,7 +6,8 @@ import HomePage from './components/HomePage/HomePage';
 
 const initialState = {
   cb: {num: '4977887677543333', exp: '02/22', type: 'visa'},
-  ...storeInitialState,
+  transactions: [{id: 1, type: 'retrait', libelle: 'ok ok ok ', price: 67}],
+  solde: 788888,
 };
 
 const App = () => {
@@ -17,7 +18,7 @@ const App = () => {
       <HomePage
         transactions={state.transactions}
         solde={state.solde}
-        action={}
+        action={() => null}
       />
     </SafeAreaView>
   );

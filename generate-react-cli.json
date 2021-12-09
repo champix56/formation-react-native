@@ -1,0 +1,27 @@
+{
+  "usesTypeScript": true,
+  "usesCssModule": true,
+  "cssPreprocessor": "css",
+  "testLibrary": "Testing Library",
+  "component": {
+    "default": {
+      "path": "src/App/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": false
+    },
+    "rnhooked": {
+      "path": "src/App/components",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": true,
+      "withLazy": false,
+      "customTemplates": {
+        "component": "grc/hooked/TemplateName.tsx",
+        "test": "grc/hooked/TemplateName.test.tsx",
+        "style": "grc/hooked/TemplateName.style.tsx"
+      }
+    }
+  }
+}
